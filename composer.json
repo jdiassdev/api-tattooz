@@ -1,15 +1,18 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "gentlemanstudio/barber-api",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "REST API for Gentleman Studio Barber management system.",
     "keywords": [
         "laravel",
-        "framework"
+        "api",
+        "barbershop",
+        "booking",
+        "rest"
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
     },
