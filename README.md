@@ -1,6 +1,6 @@
-Tattooz Studio API
+Gentleman Studio Barber API
 
-API REST desenvolvida em Laravel para gerenciamento de studio de tatuagem.
+API REST desenvolvida em Laravel para gerenciamento de uma barbearia.
 
 - Responsável por:
    Autenticação de usuários
