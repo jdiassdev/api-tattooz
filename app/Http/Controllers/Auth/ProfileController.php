@@ -22,8 +22,6 @@ class ProfileController extends Controller
             ->where('id', $userId)
             ->firstOrFail();
 
-        Log::info('ProfileController', ['user' => $user]);
-
         if (!$user) {
             return $this->error('Usuário não encontrado', Response::HTTP_NOT_FOUND);
         }
