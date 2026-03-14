@@ -10,7 +10,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('register', RegisterController::class)->name('register');
     Route::post('login', LoginController::class)->name('login');
 
-    Route::middleware('jwt.auth')->group(function () {
+    Route::middleware(['jwt'])->group(function () {
         Route::get('profile', ProfileController::class)->name('profile');
         Route::post('logout', LogoutController::class)->name('logout');
     });

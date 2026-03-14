@@ -15,12 +15,12 @@ class ProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $userId = $request->attributes->get('user_id');
 
+        $userId = $request->attributes->get('user_id');
         $user = User::query()
             ->select('id', 'name', 'email', 'cpf', 'phone', 'birthday')
             ->where('id', $userId)
-            ->firstOrFail();
+            ->first();
 
         if (!$user) {
             return $this->error('Usuário não encontrado', Response::HTTP_NOT_FOUND);

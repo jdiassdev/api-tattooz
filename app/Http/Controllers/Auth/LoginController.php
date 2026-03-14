@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 class LoginController extends Controller
@@ -16,9 +17,11 @@ class LoginController extends Controller
      */
     public function __invoke(LoginRequest $request)
     {
+
         $data = $request->validated();
 
         $user = User::where('email', $data['email'])->first();
+
 
         if (!$user || !Hash::check($data['password'], $user->password)) {
             return $this->error('Credenciais inválidas', Response::HTTP_UNAUTHORIZED);
