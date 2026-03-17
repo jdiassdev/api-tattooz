@@ -22,18 +22,40 @@ class Booking extends Model
         'status',
     ];
 
+
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
+
 
     public function barber(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'barber_id');
+        return $this->belongsTo(User::class, 'barber_id')
+            ->where('role', 'barber');
     }
 
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class);
+    }
+
+    //scopes
+    public function scopeUpcoming($query)
+    {
+        return $query->whereDate('booking_date', '>=', now()->format('Y-m-d'));
+    }
+
+    public function scopeForBarber($query, string $barberId)
+    {
+        return $query->where('barber_id', $barberId);
+    }
+
+    /**
+     * Scope para reservas de um cliente específico
+     */
+    public function scopeForUser($query, string $userId)
+    {
+        return $query->where('user_id', $userId);
     }
 }
