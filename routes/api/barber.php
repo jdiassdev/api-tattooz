@@ -11,6 +11,6 @@ Route::prefix('barbers')->name('barbers.')->group(function () {
 
 
     Route::middleware('jwt')->group(function () {
-        Route::post('/store', [BarbersController::class, 'store'])->name('store');
+        Route::post('/', [BarbersController::class, 'store'])->name('store');
     });
 });
